@@ -15,23 +15,25 @@ import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 export default function Show() {
   const { id } = useParams();
   const navigate = useNavigate();
-  let [showBlog, setShowBlog] = useState(null);
-  let [currentUser, setCurrentUser] = useState(null);
+
+  const [showBlog, setShowBlog] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
+    // Load user from localStorage
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
-      setCurrentUser(storedUser);
+      setCurrentUser(JSON.parse(storedUser));
     }
 
+    // Fetch blog data
     const fetchBlogData = async () => {
       try {
         const res = await api.get(`/blog/${id}`);
         console.log("API response:", res.data);
         setShowBlog(res.data);
-        console.log("ShowBlog Data:", res.data.blog); 
       } catch (err) {
-        console.error(err);
+        console.error("Error fetching blog:", err);
       }
     };
 
@@ -39,6 +41,17 @@ export default function Show() {
   }, [id]);
 
   if (!showBlog) return <p>Loading...</p>;
+
+  // Check if current user is the author
+  const isAuthor =
+    currentUser &&
+    showBlog.author &&
+    (currentUser._id === showBlog.author._id ||
+      currentUser.username === showBlog.author.username);
+
+  const formattedDate = showBlog.date
+    ? new Date(showBlog.date).toLocaleDateString()
+    : "Unknown date";
 
   const handleDelete = async () => {
     if (!window.confirm("Are you sure you want to delete this blog?")) return;
@@ -52,18 +65,6 @@ export default function Show() {
       );
     }
   };
-
-  console.log("Blog author:", blog.author);
-console.log("Current user:", user);
-  const isAuthor =
-    currentUser &&
-    showBlog.author &&
-    (currentUser._id === showBlog.author._id ||
-      currentUser.username === showBlog.author.username);
-
-  const formattedDate = showBlog.createdAt
-    ? new Date(showBlog.createdAt).toLocaleDateString()
-    : "Unknown date";
 
   return (
     <Box
