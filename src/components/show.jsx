@@ -19,30 +19,23 @@ export default function Show() {
   const [showBlog, setShowBlog] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
 
-  useEffect(() => {
-    // Load user from localStorage
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setCurrentUser(JSON.parse(storedUser));
+  const fetchBlogData = async () => {
+  try {
+    const res = await api.get(`/blog/${id}`, { withCredentials: true });
+    if (!res.data || res.data.error) {
+      throw new Error(res.data?.error || "Blog not found");
     }
-
-    // Fetch blog data
-    const fetchBlogData = async () => {
-      try {
-        const res = await api.get(`/blog/${id}`);
-        console.log("API response:", res.data);
-        setShowBlog(res.data);
-      } catch (err) {
-        console.error("Error fetching blog:", err);
-      }
-    };
-
-    fetchBlogData();
-  }, [id]);
+    setShowBlog(res.data);
+  } catch (err) {
+    console.error("Error fetching blog:", err);
+    alert("Could not load blog: " + err.message);
+    navigate("/"); 
+  }
+};
 
   if (!showBlog) return <p>Loading...</p>;
 
-  // Check if current user is the author
+  
   const isAuthor =
     currentUser &&
     showBlog.author &&
