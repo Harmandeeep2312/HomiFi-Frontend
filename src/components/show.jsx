@@ -56,7 +56,7 @@ export default function Show() {
   const handleDelete = async () => {
     if (!window.confirm("Are you sure you want to delete this blog?")) return;
     try {
-      await api.delete(`/blog/${id}`);
+      await api.delete(`/blog/${id}`,{ withCredentials: true });
       alert("Blog deleted successfully");
       navigate("/");
     } catch (err) {
@@ -88,7 +88,6 @@ export default function Show() {
         }}
       >
         <CardContent>
-          {/* Author */}
           <Typography
             sx={{
               display: "flex",
@@ -102,8 +101,6 @@ export default function Show() {
             <PersonIcon fontSize="small" />{" "}
             {showBlog.author?.username || "Anonymous"}
           </Typography>
-
-          {/* Title */}
           <Typography
             variant="h4"
             component="div"
@@ -112,7 +109,6 @@ export default function Show() {
             {showBlog.title}
           </Typography>
 
-          {/* Date */}
           <Typography
             sx={{
               display: "flex",
@@ -125,13 +121,11 @@ export default function Show() {
             <CalendarTodayIcon fontSize="small" /> {formattedDate}
           </Typography>
 
-          {/* Content */}
           <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
             {showBlog.content}
           </Typography>
         </CardContent>
 
-        {/* Back button */}
         <Box sx={{ textAlign: "center", mt: 2 }}>
           <Button
             component={Link}
