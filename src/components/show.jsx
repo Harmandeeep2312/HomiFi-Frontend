@@ -24,7 +24,7 @@ export default function Show() {
     // Load user from localStorage
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
-      setCurrentUser(JSON.parse(storedUser));
+      setCurrentUser(storedUser);
     }
 
     // Fetch blog data
