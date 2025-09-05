@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import api from "../api";
 import { AuthContext } from "./AuthContent";
 import { useNavigate } from "react-router-dom";
-import "../public/Login.css"; 
+import "./Login.css"; 
 
 export default function Login() {
   const { setIsLoggedIn, setUser } = useContext(AuthContext);

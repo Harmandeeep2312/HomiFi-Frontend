@@ -1,4 +1,4 @@
-/* Page container */
+
 .show-container {
   display: flex;
   justify-content: center;
@@ -7,7 +7,6 @@
   box-sizing: border-box;
 }
 
-/* Blog card */
 .show-card {
   width: 100%;
   max-width: 900px;
@@ -18,7 +17,6 @@
   overflow-wrap: break-word;
 }
 
-/* Blog title */
 .show-title {
   font-size: 2rem;
   font-weight: bold;
@@ -26,7 +24,6 @@
   text-align: center;
 }
 
-/* Author + Date */
 .show-meta {
   display: flex;
   justify-content: center;
@@ -37,7 +34,6 @@
   margin-bottom: 1.5rem;
 }
 
-/* Blog content */
 .show-content {
   font-size: 1.1rem;
   line-height: 1.8;
@@ -46,7 +42,6 @@
   white-space: pre-line;
 }
 
-/* Buttons */
 .show-actions {
   display: flex;
   justify-content: center;

@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import api from "../api";
 import { AuthContext } from "./AuthContent";
 import { useNavigate } from "react-router-dom";
-import "../public/signup.css"
+import "./signup.css"
 
 export default function Signup() {
   const { setIsLoggedIn, setUser } = useContext(AuthContext);
