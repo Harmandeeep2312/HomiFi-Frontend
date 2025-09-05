@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useState, useEffect } from 'react';
-import "../public/home.css";
+import "./home.css";
 import Navbar from "./navbar.jsx";
 import api from "../api";
 import { Link } from "react-router-dom";
