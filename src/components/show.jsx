@@ -18,24 +18,35 @@ export default function Show() {
 
   const [showBlog, setShowBlog] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
+  const [error, setError] = useState(null);
 
-  const fetchBlogData = async () => {
-  try {
-    const res = await api.get(`/blog/${id}`, { withCredentials: true });
-    if (!res.data || res.data.error) {
-      throw new Error(res.data?.error || "Blog not found");
+  useEffect(() => {
+    // Load user from localStorage
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setCurrentUser(JSON.parse(storedUser));
     }
-    setShowBlog(res.data);
-  } catch (err) {
-    console.error("Error fetching blog:", err);
-    alert("Could not load blog: " + err.message);
-    navigate("/"); 
-  }
-};
 
+    // Fetch blog data
+    const fetchBlogData = async () => {
+      try {
+        const res = await api.get(`/blog/${id}`, { withCredentials: true });
+        if (!res.data || res.data.error) {
+          throw new Error(res.data?.error || "Blog not found");
+        }
+        setShowBlog(res.data);
+      } catch (err) {
+        console.error("Error fetching blog:", err);
+        setError(err.message);
+      }
+    };
+
+    fetchBlogData();
+  }, [id]);
+
+  if (error) return <p>{error}</p>;
   if (!showBlog) return <p>Loading...</p>;
 
-  
   const isAuthor =
     currentUser &&
     showBlog.author &&
@@ -49,7 +60,7 @@ export default function Show() {
   const handleDelete = async () => {
     if (!window.confirm("Are you sure you want to delete this blog?")) return;
     try {
-      await api.delete(`/blog/${id}`,{ withCredentials: true });
+      await api.delete(`/blog/${id}`, { withCredentials: true });
       alert("Blog deleted successfully");
       navigate("/");
     } catch (err) {
@@ -130,25 +141,25 @@ export default function Show() {
             ← Back to Home
           </Button>
         </Box>
-          <CardActions sx={{ justifyContent: "center", gap: 2, mt: 2 }}>
-            <Button
-              component={Link}
-              to={`/blog/${id}/edit`}
-              size="large"
-              variant="outlined"
-              color="primary"
-            >
-              Edit
-            </Button>
-            <Button
-              onClick={handleDelete}
-              size="large"
-              color="error"
-              variant="outlined"
-            >
-              Delete
-            </Button>
-          </CardActions>
+        <CardActions sx={{ justifyContent: "center", gap: 2, mt: 2 }}>
+          <Button
+            component={Link}
+            to={`/blog/${id}/edit`}
+            size="large"
+            variant="outlined"
+            color="primary"
+          >
+            Edit
+          </Button>
+          <Button
+            onClick={handleDelete}
+            size="large"
+            color="error"
+            variant="outlined"
+          >
+            Delete
+          </Button>
+        </CardActions>
       </Card>
     </Box>
   );
