@@ -1,0 +1,81 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+.card {
+  padding: 1rem;
+}
+
+.read-the-docs {
+  color: #888;
+}
+html  body {
+  margin: 0;
+  min-height: 150vh;
+  background: linear-gradient(-45deg, #6a11cb, #2575fc, #3a0ca3, #7209b7);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
+  font-family: Arial, sans-serif;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+#root {
+  max-width: 1280px;  
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+  min-height: 100vh;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Default desktop styles (already there) */
+
+/* 📱 Small screens (phones) */
+@media (max-width: 600px) {
+  #root {
+    padding: 0.5rem;
+    max-width: 100%;
+  }
+
+  .MuiCard-root {
+    max-width: 95% !important;
+    margin: 0 auto;
+  }
+
+  h1, h2, h3 {
+    font-size: 1.5rem; /* shrink headings */
+  }
+
+  .MuiTextField-root {
+    width: 100% !important; /* form inputs full width */
+  }
+
+  button, .MuiButton-root {
+    width: 100% !important; /* buttons full width on mobile */
+    margin-top: 10px;
+  }
+}
+
+/* 📱 Tablets (portrait/landscape) */
+@media (min-width: 601px) and (max-width: 900px) {
+  #root {
+    padding: 1rem;
+  }
+
+  .MuiCard-root {
+    max-width: 90% !important;
+  }
+}
