@@ -143,9 +143,6 @@ export default function Show() {
             ← Back to Home
           </Button>
         </Box>
-
-        {/* Author actions */}
-        {isAuthor && (
           <CardActions sx={{ justifyContent: "center", gap: 2, mt: 2 }}>
             <Button
               component={Link}
@@ -165,7 +162,6 @@ export default function Show() {
               Delete
             </Button>
           </CardActions>
-        )}
       </Card>
     </Box>
   );
