@@ -1,54 +1,94 @@
+
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #ff5f6d, #ffc371);
+  font-family: 'Poppins', sans-serif;
 }
 
+
 .login-card {
-  background: #fff;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+ background: linear-gradient(135deg, #ff9a9e, #fad0c4, #a18cd1);
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  width: 320px;
+  align-items: center;
+  gap: 20px;
+  transform: scale(0.9);
+  opacity: 0;
+  animation: fadeInUp 0.8s forwards;
+}
+
+
+.login-title {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 10px;
   text-align: center;
 }
 
-.login-title {
-  margin-bottom: 10px;
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-}
 
 .login-input {
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 16px;
+  width: 250px;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 2px solid #ddd;
   outline: none;
-  transition: border-color 0.3s;
+  transition: 0.3s;
+  font-size: 16px;
 }
 
 .login-input:focus {
-  border-color: #007bff;
+  border-color: #6c63ff;
+  box-shadow: 0 0 8px rgba(108, 99, 255, 0.5);
+  transform: translateY(-2px);
 }
 
+
 .login-button {
+  width: 260px;
   padding: 12px;
   border: none;
-  border-radius: 8px;
-  background: #007bff;
+  border-radius: 12px;
+  background: #6c63ff;
   color: #fff;
-  font-size: 16px;
+  font-size: 18px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.3);
+  transition: 0.3s;
+}
+
+.login-button:hover::after {
+  left: 0;
 }
 
 .login-button:hover {
-  background: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }

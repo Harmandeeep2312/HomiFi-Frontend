@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AppBar from '@mui/material/AppBar';
@@ -39,8 +38,10 @@ export default function Navbar() {
   };
 
   return (
-    <AppBar position="fixed" sx={{ backgroundColor: "#1a2a6c" }}>
-      <Toolbar disableGutters>
+    <AppBar position="fixed" sx={{ 
+    background: "linear-gradient(90deg, #0f2027, #203a43, #2c5364)" 
+  }}>
+      <Toolbar disableGutters sx={{ pl: 2.5 }}>
         <AdbIcon sx={{ mr: 1 }} />
         <Typography
           variant="h6"

@@ -2,6 +2,7 @@
 .show-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 2rem 1rem;
   min-height: 100vh;
   box-sizing: border-box;
@@ -47,4 +48,60 @@
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
+}
+.Review-Box {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
+}
+.Review-Box h3 {
+  color: #1a2a6c; 
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+.Review-Box p {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.comment-box {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.comment-box .MuiTextField-root {
+  width: 100%;
+  max-width: 500px;
+}
+
+.comment-box input,
+.comment-box textarea {
+  border-radius: 8px !important;
+  padding: 10px !important;
+}
+.Review-Box .MuiBox-root {
+  margin: 15px auto;
+  justify-content: center;
+}
+.Review-Box:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+  transition: all 0.3s ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
