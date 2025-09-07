@@ -39,8 +39,8 @@ export default function Show() {
   const [showBlog, setShowBlog] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
   const [error, setError] = useState(null);
-   const [value, setValue] = React.useState(2);
-  const [hover, setHover] = React.useState(-1);
+  //  const [value, setValue] = React.useState(2);
+  // const [hover, setHover] = React.useState(-1);
   const [commentData, setCommentData] = useState({comment: ""});
 
   useEffect(() => {
