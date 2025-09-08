@@ -11,7 +11,7 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;   /* take full screen */
+  min-height: 100vh;  
   width: 100%; 
   background-size: 400% 400%;
   animation: gradientShift 12s ease infinite;
@@ -25,9 +25,9 @@ html, body {
   backdrop-filter: blur(18px);
   border-radius: 18px;
   padding: 2.5rem 2rem;
-  width: 380px;           /* fixed width */
-  max-width: 90%;         /* still responsive */
-  height: auto;           /* only as tall as content */
+  width: 380px;           
+  max-width: 90%;       
+  height: auto;          
   text-align: center;
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
   color: #f9f9f9;
@@ -147,4 +147,52 @@ html, body {
 @keyframes slideIn {
   from { opacity: 0; transform: translateY(60px) scale(0.95); }
   to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Divider styling */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+.divider span {
+  flex: 1;
+  height: 1px;
+  background: #ddd;
+  position: relative;
+}
+
+.divider span::after {
+  content: "OR";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 0 10px;
+  color: #888;
+  font-size: 14px;
+}
+
+/* Google Button */
+.google-button {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #555;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.google-button:hover {
+  background: #f1f1f1;
 }

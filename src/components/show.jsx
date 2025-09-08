@@ -15,6 +15,7 @@ import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
 import TextField from '@mui/material/TextField';
+import ShowComments from "./showComment.jsx";
 
 const labels = {
   0.5: 'Useless',
@@ -44,6 +45,20 @@ export default function Show() {
   const [hover, setHover] = useState(-1);
   const [commentData, setCommentData] = useState({comment: "",});
   const [refreshReviews, setRefreshReviews] = useState(false);
+
+  useEffect(() => {
+    const fetchBlog = async () => {
+      try {
+        const res = await api.get(`/blog/${id}`, { withCredentials: true });
+        setShowBlog(res.data);
+      } catch (err) {
+        setError("Blog not found or error fetching blog.");
+        console.error(err);
+      }
+    };
+    fetchBlog();
+  }, [id, refreshReviews]);
+
   if (error) return <p>{error}</p>;
   if (!showBlog) return <p>Loading...</p>;
 
@@ -243,7 +258,10 @@ export default function Show() {
   </p>
     )}
     </div>
-
+    <div>
+      <h3>Comments</h3>
+      <ShowComments blogId={id}/>
+    </div>
     </>
   );
 }

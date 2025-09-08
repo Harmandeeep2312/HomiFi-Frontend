@@ -1,10 +1,10 @@
-
-import React,  { useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import api from "../api";
 import { AuthContext } from "./AuthContent";
 import TextField from "@mui/material/TextField";
 import { useNavigate } from "react-router-dom";
-import "./login.css"; 
+import { FcGoogle } from "react-icons/fc"; 
+import "./login.css";
 
 export default function Login() {
   const { setIsLoggedIn, setUser } = useContext(AuthContext);
@@ -27,9 +27,9 @@ export default function Login() {
       console.error(err);
     }
   };
-   const handleGoogleLogin = () => {
-    window.location.href = "https://homifi-backend.onrender.com/auth/google";
 
+  const handleGoogleLogin = () => {
+    window.location.href = "https://homifi-backend.onrender.com/auth/google";
   };
 
   return (
@@ -50,13 +50,23 @@ export default function Login() {
           placeholder="Password"
           className="login-input"
         />
-        <button type="submit" className="login-button">Login</button>
-      </form>
-      <div style={{ margin: "20px 0", textAlign: "center" }}>OR</div>
-      <button onClick={handleGoogleLogin} className="google-button">
-        Sign in with Google
-      </button>
+        <button type="submit" className="login-button">
+          Login
+        </button>
 
+        <div className="divider">
+          <span>OR</span>
+        </div>
+
+        <button
+          type="button"
+          onClick={handleGoogleLogin}
+          className="google-button"
+        >
+          <FcGoogle size={22} style={{ marginRight: "8px" }} />
+          Sign in with Google
+        </button>
+      </form>
     </div>
   );
 }
