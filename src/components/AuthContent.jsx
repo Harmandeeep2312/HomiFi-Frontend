@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import TextField from "@mui/material/TextField";
 import api from "../api";
 
 export const AuthContext = createContext();
@@ -7,7 +8,7 @@ export function AuthProvider({ children }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
 
-  // Check session on mount
+  
   useEffect(() => {
     const checkUser = async () => {
       try {
