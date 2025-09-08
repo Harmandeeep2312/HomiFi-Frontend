@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { useEffect, useState } from "react";
+
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import api from "../api";
 import { Box, Card, CardContent, Typography, Rating } from "@mui/material";

@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { useContext, useState } from "react";
+
+import React,  { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';

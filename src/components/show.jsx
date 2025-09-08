@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useState } from "react";
+import React,  { useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { AuthContext } from "./AuthContent";
 import api from "../api";
