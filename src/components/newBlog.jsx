@@ -38,7 +38,6 @@ export default function NewBlog() {
       <div
         style={{
           minHeight: "100vh",
-          background: "linear-gradient(-45deg, #6a11cb, #2575fc, #3a0ca3, #7209b7)",
           backgroundSize: "400% 400%",
           animation: "gradientBG 12s ease infinite",
           display: "flex",
