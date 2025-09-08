@@ -92,3 +92,20 @@
     transform: scale(1) translateY(0);
   }
 }
+.google-button {
+  background-color: #db4437;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 100%;
+  transition: background 0.3s;
+}
+
+.google-button:hover {
+  background-color: #c1351d;
+}
+

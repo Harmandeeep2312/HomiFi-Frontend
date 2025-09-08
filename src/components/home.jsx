@@ -10,6 +10,7 @@ import Navbar from "./navbar.jsx";
 import api from "../api";
 import { Link } from "react-router-dom";
 
+
 export default function Home() {
   let [blog, setBlog] = useState([]);
 

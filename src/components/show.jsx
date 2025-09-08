@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
+import { AuthContext } from "./AuthContent";
 import api from "../api";
 import Navbar from "./navbar.jsx";
 import Box from "@mui/material/Box";
@@ -35,44 +36,20 @@ function getLabelText(value) {
 export default function Show() {
   const { id } = useParams();
   const navigate = useNavigate();
-
+  const { user } = useContext(AuthContext);
   const [showBlog, setShowBlog] = useState(null);
-  const [currentUser, setCurrentUser] = useState(null);
   const [error, setError] = useState(null);
-  //  const [value, setValue] = React.useState(2);
-  // const [hover, setHover] = React.useState(-1);
-  const [commentData, setCommentData] = useState({comment: ""});
-
-  useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setCurrentUser(storedUser);
-    }
-
-    const fetchBlogData = async () => {
-      try {
-        const res = await api.get(`/blog/${id}`, { withCredentials: true });
-        if (!res.data || res.data.error) {
-          throw new Error(res.data?.error || "Blog not found");
-        }
-        setShowBlog(res.data);
-      } catch (err) {
-        console.error("Error fetching blog:", err);
-        setError(err.message);
-      }
-    };
-
-    fetchBlogData();
-  }, [id]);
-
+   const [value, setValue] = useState(2);
+  const [hover, setHover] = useState(-1);
+  const [commentData, setCommentData] = useState({comment: "",});
+  const [refreshReviews, setRefreshReviews] = useState(false);
   if (error) return <p>{error}</p>;
   if (!showBlog) return <p>Loading...</p>;
 
-  const isAuthor =
-    currentUser &&
-    showBlog.author &&
-    (currentUser._id === showBlog.author._id ||
-      currentUser.username === showBlog.author.username);
+ const isAuthor =
+  user &&
+  showBlog.author &&
+  (user._id === showBlog.author._id || user.username === showBlog.author.username);
 
   const formattedDate = showBlog.date
     ? new Date(showBlog.date).toLocaleDateString()
@@ -91,13 +68,32 @@ export default function Show() {
     }
   };
   const handleInput = (event)=>{
-    const {comment} = event.target;
+    const {name,value} = event.target;
     setCommentData((prev)=>({
       ...prev,
       [name]:value
     })
     )
   };
+  const handleSubmitReview = async (e) => {
+  e.preventDefault();
+  try {
+    const review= {
+      comment: commentData.comment,
+      rating: value,
+      author: user?.username || "Anonymous"
+    };
+     await api.post(`/blog/${id}/review`, review, { withCredentials: true });
+
+    alert("Thanks for your feedback!");
+    setCommentData({ comment: "" });
+    setValue(0);
+    setRefreshReviews((prev) => !prev);
+  } catch (err) {
+    console.error("Error submitting review:", err);
+    alert("Error submitting review");
+  }
+};
 
   return (
     <>
@@ -172,6 +168,7 @@ export default function Show() {
             Back to Home
           </Button>
         </Box>
+        {isAuthor && (
         <CardActions sx={{ justifyContent: "center", gap: 2, mt: 2 }}>
           <Button
             component={Link}
@@ -191,12 +188,21 @@ export default function Show() {
             Delete
           </Button>
         </CardActions>
+        )}
       </Card>
     </Box>
       <div className="Review-Box">
         <h3>Hope You Enjoyed Our Blog!!</h3>
         <p>Please Help Us Improve By Providing Us Your Valuable Comment On How We Can Improve</p>
-     <Box sx={{ width: 200, display: 'flex', alignItems: 'center' }}>
+    {user ? (
+    <Box
+      component="form"
+       onSubmit={handleSubmitReview}
+      sx={{ '& .MuiTextField-root': { m: 1, width: '25ch' } }}
+      noValidate
+      autoComplete="off"
+    >
+      <Box sx={{ width: 200, display: 'flex', alignItems: 'center' }}>
       <Rating
         name="hover-feedback"
         value={value}
@@ -214,12 +220,6 @@ export default function Show() {
         <Box sx={{ ml: 2 }}>{labels[hover !== -1 ? hover : value]}</Box>
       )}
     </Box>
-    <Box
-      component="form"
-      sx={{ '& .MuiTextField-root': { m: 1, width: '25ch' } }}
-      noValidate
-      autoComplete="off"
-    >
       <div className="comment-box">
         <TextField
           id="standard-multiline-flexible"
@@ -232,7 +232,15 @@ export default function Show() {
           name="comment"
           onChange={handleInput}
         /></div>
+        <Button type="submit" variant="contained" color="primary" sx={{ mt: 2 }}>
+          Submit Review
+        </Button>
     </Box>
+    ) : (
+      <p style={{ color: "red" }}>
+    You must <Link to="/login">log in</Link> to comment.
+  </p>
+    )}
     </div>
     </>
   );

@@ -16,7 +16,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await api.post("/login", form);
+      const res = await api.post("/login", form, { withCredentials: true });
       localStorage.setItem("user", JSON.stringify(res.data.user));
       setIsLoggedIn(true);
       setUser({ username: form.username });
@@ -24,6 +24,10 @@ export default function Login() {
     } catch (err) {
       console.error(err);
     }
+  };
+   const handleGoogleLogin = () => {
+    window.location.href = "https://homifi-backend.onrender.com/auth/google";
+
   };
 
   return (
@@ -46,6 +50,11 @@ export default function Login() {
         />
         <button type="submit" className="login-button">Login</button>
       </form>
+      <div style={{ margin: "20px 0", textAlign: "center" }}>OR</div>
+      <button onClick={handleGoogleLogin} className="google-button">
+        Sign in with Google
+      </button>
+
     </div>
   );
 }
