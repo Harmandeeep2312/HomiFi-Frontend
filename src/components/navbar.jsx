@@ -124,7 +124,7 @@ export default function Navbar() {
         >
           HomiFi
         </Typography>
-        <Box sx={{ flexGrow: 1, display: 'flex' }}>
+        <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', gap: 2 }}>
           {isLoggedIn ? (
             <Button onClick={() => navigate("/blog/new")} sx={{ my: 2, color: 'white' }}>
               Create Blog
@@ -141,7 +141,7 @@ export default function Navbar() {
             </>
           )}
         </Box>
-         <div>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
       <Button
         id="demo-customized-button"
         aria-controls={open ? 'demo-customized-menu' : undefined}
@@ -183,11 +183,9 @@ export default function Navbar() {
           Education & Knowledge
         </MenuItem>
       </StyledMenu>
-    </div>
-    <div>
       <TextField id="outlined-basic" label="Search" variant="outlined" />
         <SearchIcon />
-    </div>
+        </Box>
         {isLoggedIn && (
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Account">
