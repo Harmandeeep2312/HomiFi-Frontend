@@ -1,7 +1,7 @@
 import React,  { useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { AuthContext } from "./AuthContent";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import api from "../api";
 import Navbar from "./navbar.jsx";
 import Box from "@mui/material/Box";
@@ -243,6 +243,7 @@ export default function Show() {
   </p>
     )}
     </div>
+
     </>
   );
 }
