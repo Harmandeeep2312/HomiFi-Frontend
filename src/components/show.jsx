@@ -1,7 +1,7 @@
 import React,  { useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { AuthContext } from "./AuthContent";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect,  } from "react";
 import api from "../api";
 import Navbar from "./navbar.jsx";
 import Box from "@mui/material/Box";
@@ -260,7 +260,7 @@ export default function Show() {
     </div>
     <div>
       <h3>Comments</h3>
-      <ShowComments blogId={id}/>
+      <ShowComments blogId={id} refresh={refreshReviews} />
     </div>
     </>
   );
