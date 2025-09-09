@@ -92,8 +92,18 @@ export default function Navbar() {
         background: "linear-gradient(90deg, #0f2027, #203a43, #2c5364)",
       }}
     >
-      <Toolbar disableGutters sx={{ px: 2 }}>
-        <AdbIcon sx={{ mr: 1 }} />
+      <Toolbar
+        disableGutters
+        sx={{
+          px: 2,
+          flexWrap: { xs: "wrap", md: "nowrap" },        // ✅ wrap items on mobile
+          justifyContent: { xs: "center", md: "space-between" }, // ✅ center on mobile
+          gap: { xs: 1, md: 2 },                          // ✅ reduce spacing on mobile
+        }}
+      >
+        <AdbIcon sx={{ mr: 1, display: { xs: "none", md: "flex" } }} /> 
+        {/* ✅ hide icon on mobile */}
+
         <Typography
           variant="h6"
           noWrap
@@ -106,18 +116,23 @@ export default function Navbar() {
             letterSpacing: ".3rem",
             color: "inherit",
             textDecoration: "none",
+            flexGrow: { xs: 1, md: 0 },                   // ✅ let title take space on mobile
+            textAlign: { xs: "center", md: "left" },      // ✅ center title on mobile
           }}
         >
           HomiFi
         </Typography>
 
+        {/* Center section: Categories + Search */}
         <Box
           sx={{
             flexGrow: 1,
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            gap: 2,
+            gap: { xs: 1, md: 2 },
+            flexDirection: { xs: "column", md: "row" },  // ✅ stack vertically on mobile
+            mt: { xs: 1, md: 0 },                        // ✅ add spacing on mobile
           }}
         >
           <Button
@@ -126,6 +141,10 @@ export default function Navbar() {
             disableElevation
             onClick={handleClick}
             endIcon={<KeyboardArrowDownIcon />}
+            sx={{
+              fontSize: { xs: "12px", md: "14px" },      // ✅ smaller on mobile
+              px: { xs: 1, md: 2 },
+            }}
           >
             Blog Categories
           </Button>
@@ -153,23 +172,39 @@ export default function Navbar() {
             </MenuItem>
           </StyledMenu>
 
-          <TextField
-            id="search-bar"
-            label="Search"
-            size="small"
-            variant="outlined"
-          />
-          <SearchIcon />
+          {/* ✅ search bar shrinks on mobile */}
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1, width: { xs: "100%", md: "auto" } }}>
+            <TextField
+              id="search-bar"
+              label="Search"
+              size="small"
+              variant="outlined"
+              sx={{ flexGrow: 1 }}
+            />
+            <SearchIcon />
+          </Box>
         </Box>
-        <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+
+        {/* Right side: login/signup or profile */}
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: { xs: 1, md: 2 },
+            mt: { xs: 1, md: 0 },   // ✅ move down on mobile
+          }}
+        >
           {!isLoggedIn ? (
             <>
-              <Button onClick={() => navigate("/login")} sx={{ color: "white" }}>
+              <Button
+                onClick={() => navigate("/login")}
+                sx={{ color: "white", fontSize: { xs: "12px", md: "14px" } }}
+              >
                 Login
               </Button>
               <Button
                 onClick={() => navigate("/signup")}
-                sx={{ color: "white" }}
+                sx={{ color: "white", fontSize: { xs: "12px", md: "14px" } }}
               >
                 Signup
               </Button>
@@ -178,7 +213,7 @@ export default function Navbar() {
             <>
               <Button
                 onClick={() => navigate("/blog/new")}
-                sx={{ color: "white" }}
+                sx={{ color: "white", fontSize: { xs: "12px", md: "14px" } }}
               >
                 Create Blog
               </Button>
