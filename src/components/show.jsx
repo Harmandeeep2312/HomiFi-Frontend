@@ -6,7 +6,7 @@ import { Box, Card, CardContent, CardActions, Button, Typography, TextField, Rat
 import PersonIcon from "@mui/icons-material/Person";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import StarIcon from "@mui/icons-material/Star";
-import ShowComments from "./ShowComments";
+import ShowComments from "./showComments";
 
 const labels = {
   0.5: "Useless",
