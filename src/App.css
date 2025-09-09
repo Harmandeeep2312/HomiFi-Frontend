@@ -70,30 +70,6 @@ body {
   }
 }
 
-
-@media (min-width: 1025px) {
-  .container {
-    width: 80%;
-    margin: auto;
-    padding: 20px;
-  }
-
-  .navbar {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .blog-card {
-    width: 30%;
-    margin: 1%;
-    display: inline-block;
-    vertical-align: top;
-  }
-
-  .comment-section {
-    font-size: 16px;
-  }
-}
 @media (max-width: 600px) {
   .MuiToolbar-root {
     flex-direction: column !important;
