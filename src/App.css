@@ -50,3 +50,49 @@ body {
   100% { background-position: 0% 50%; }
 }
 
+@media (min-width: 601px) and (max-width: 1024px) {
+  .container {
+    padding: 15px;
+  }
+
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .blog-card {
+    width: 48%;
+    display: inline-block;
+  }
+
+  .comment-section {
+    font-size: 15px;
+  }
+}
+
+/* ===========================
+   Desktop (min-width: 1025px)
+=========================== */
+@media (min-width: 1025px) {
+  .container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+  }
+
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .blog-card {
+    width: 30%;
+    margin: 1%;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .comment-section {
+    font-size: 16px;
+  }
+}
