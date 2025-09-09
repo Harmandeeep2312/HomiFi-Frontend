@@ -113,6 +113,7 @@ export default function Show() {
   return (
     <>
       <Navbar />
+       <Toolbar />
       <Box sx={{ width: "100%", py: 6, px: 2, pt: 10, background: "linear-gradient(to right, #6dd5ed, #2193b0)" }}>
         {/* Blog Card */}
         <Card sx={{ maxWidth: 800, mx: "auto", p: 3, borderRadius: 3, boxShadow: 5, bgcolor: "white" }}>

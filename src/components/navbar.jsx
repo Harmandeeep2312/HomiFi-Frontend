@@ -22,6 +22,7 @@ import BookIcon from "@mui/icons-material/Book";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
+import Toolbar from "@mui/material/Toolbar";
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -87,7 +88,7 @@ export default function Navbar() {
 
   return (
     <AppBar
-      position="static"
+      position="fixed"
       sx={{
         background: "linear-gradient(90deg, #0f2027, #203a43, #2c5364)",
       }}
