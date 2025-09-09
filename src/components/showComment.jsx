@@ -23,7 +23,7 @@ export default function ShowComments({ blogId, refresh }) {
 
         
         const blogComments = Array.isArray(res.data.comments)
-          ? res.data.comments
+          ? res.data.reviews
           : [];
         setComments(blogComments);
       } catch (err) {
