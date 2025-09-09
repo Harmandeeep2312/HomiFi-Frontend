@@ -22,11 +22,17 @@ export default function Login() {
       localStorage.setItem("user", JSON.stringify(res.data.user));
       setIsLoggedIn(true);
       setUser({ username: form.username });
-      navigate("/");
+      navigate(res.data.redirectUrl || "/");
     } catch (err) {
-      console.error(err);
-    }
-  };
+      if (err.response?.status === 401) {
+    alert("Invalid username or password");
+  } else {
+    console.error("Login error:", err);
+    alert("Something went wrong. Please try again.");
+  }
+}
+  }
+
 
   const handleGoogleLogin = () => {
     window.location.href = "https://homifi-backend.onrender.com/auth/google";
