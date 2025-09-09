@@ -17,7 +17,7 @@ export default function ShowComments({ blogId, refresh }) {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const res = await api.get(`/blog/${blogId}/comments`, {
+        const res = await api.get(`/blog/${blogId}/review`, {
           withCredentials: true,
         });
         setComments(res.data || []);
@@ -48,7 +48,7 @@ export default function ShowComments({ blogId, refresh }) {
           }}
         >
           <CardContent>
-            {/* Author + Date */}
+            
             <Box
               sx={{
                 display: "flex",
@@ -81,12 +81,12 @@ export default function ShowComments({ blogId, refresh }) {
               </Typography>
             </Box>
 
-            {/* Comment Text */}
+           
             <Typography variant="body1" sx={{ mb: 1 }}>
               {cmt.comment}
             </Typography>
 
-            {/* Rating if available */}
+            
             {cmt.rating && (
               <Rating value={cmt.rating} precision={0.5} readOnly size="small" />
             )}
