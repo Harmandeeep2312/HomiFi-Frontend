@@ -21,14 +21,14 @@ export default function ShowComments({ blogId, refresh }) {
           withCredentials: true,
         });
 
-        // Ensure comments is always an array
+        
         const blogComments = Array.isArray(res.data.comments)
           ? res.data.comments
           : [];
         setComments(blogComments);
       } catch (err) {
         console.error("Error fetching comments:", err);
-        setComments([]); // fallback to empty array on error
+        setComments([]); 
       }
     };
 
@@ -47,7 +47,7 @@ export default function ShowComments({ blogId, refresh }) {
     <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
       {comments.map((cmt, index) => (
         <Card
-          key={cmt._id || index} // use unique id if available
+          key={cmt._id || index} 
           sx={{
             borderRadius: 2,
             boxShadow: 3,
@@ -64,14 +64,6 @@ export default function ShowComments({ blogId, refresh }) {
                 gap: 1,
               }}
             >
-              <Typography
-                sx={{ display: "flex", alignItems: "center", gap: 1 }}
-                color="primary"
-              >
-                <PersonIcon fontSize="small" />
-                {cmt.author || "Anonymous"}
-              </Typography>
-
               <Typography
                 sx={{
                   display: "flex",
