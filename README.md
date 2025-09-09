@@ -41,18 +41,15 @@ client/
 Install dependencies:
 
 bash
-Copy code
 npm install
 Create a .env file in client/:
 
 env
-Copy code
 VITE_API_URL=http://localhost:5000   # backend API URL
 VITE_GOOGLE_CLIENT_ID=your_google_client_id
 Start the development server:
 
 bash
-Copy code
 npm run dev
 The app should now run at http://localhost:5173
 
@@ -60,8 +57,10 @@ The app should now run at http://localhost:5173
 npm run build
 npm run preview
 
-✅ Tech Stack
-React
-Vite
-Axios (API calls)
-Google OAuth 2.0
+Tech Stack
+
+React + Vite – Modern frontend stack for speed and DX.
+
+Axios – To communicate with backend APIs.
+
+Google OAuth 2.0 – Secure login.
