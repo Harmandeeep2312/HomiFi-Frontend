@@ -20,7 +20,7 @@ export default function ShowComments({ blogId, refresh }) {
         const res = await api.get(`/blog/${blogId}`, {
           withCredentials: true,
         });
-        setComments(res.data || []);
+         setComments(Array.isArray(res.data.comments) ? res.data.comments : []);
       } catch (err) {
         console.error("Error fetching comments:", err);
       }
