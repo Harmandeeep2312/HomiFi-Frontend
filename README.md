@@ -1,12 +1,67 @@
-# React + Vite
+# HomiFi - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The **frontend** of HomiFi is a modern, responsive web application built with **React (Vite)**.  
+It provides a clean and intuitive interface for users to explore, create, and interact with blogs.  
 
-Currently, two official plugins are available:
+This layer acts as the **user’s gateway** to the platform — whether they want to read inspiring articles, share their own stories, or engage with others through comments.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🌟 What This Frontend Does
+- **Beautiful Blog Experience** – Browse and read blogs in a distraction-free, responsive design.  
+- **Seamless Blog Creation** – Authenticated users can create and publish blogs directly from the interface.  
+- **Interactive Commenting** – Engage with the community by adding comments to any blog.  
+- **Google Authentication** – Log in securely with Google OAuth 2.0, without managing separate credentials.  
+- **Dynamic UI** – Fast navigation and rendering powered by Vite + React.  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📂 Project Structure
+client/
+│── public/ # Static assets
+│── src/ # React source code
+│ ├── components/ # Reusable UI components
+│ ├── pages/ # App pages
+│ ├── context/ # Context providers
+│ ├── App.jsx
+│ └── main.jsx
+│── index.html
+│── vite.config.js # Vite configuration
+│── package.json
+│── .env # Environment variables
+
+
+---
+
+## ⚙️ Installation
+
+1. Navigate to the frontend folder:
+   ```bash
+   cd client
+Install dependencies:
+
+bash
+Copy code
+npm install
+Create a .env file in client/:
+
+env
+Copy code
+VITE_API_URL=http://localhost:5000   # backend API URL
+VITE_GOOGLE_CLIENT_ID=your_google_client_id
+Start the development server:
+
+bash
+Copy code
+npm run dev
+The app should now run at http://localhost:5173
+
+📦 Build for Production
+npm run build
+npm run preview
+
+✅ Tech Stack
+React
+Vite
+Axios (API calls)
+Google OAuth 2.0
