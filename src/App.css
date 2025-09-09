@@ -72,13 +72,27 @@ body {
 }
 
 @media (max-width: 600px) {
+  .MuiAppBar-root {
+    padding: 5px !important;
+  }
+
   .MuiToolbar-root {
-    flex-direction: column !important;
-    align-items: center !important;
+    flex-wrap: wrap !important;   
+    justify-content: center !important;
+    gap: 6px !important;         
   }
 
   .MuiButton-root {
-    width: 100% !important;
-    margin: 5px 0 !important;
+    font-size: 12px !important;
+    padding: 4px 8px !important;
+  }
+
+  .MuiInputBase-root {
+    width: 90% !important;       
+    margin: 5px auto !important;
+  }
+
+  .MuiSvgIcon-root {
+    font-size: 20px !important;  
   }
 }
