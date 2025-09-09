@@ -1,50 +1,99 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import api from "../api";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Paper from "@mui/material/Paper";
+import {
+  Box,
+  Typography,
+  Card,
+  CardContent,
+  Divider,
+  Rating,
+} from "@mui/material";
+import PersonIcon from "@mui/icons-material/Person";
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 
 export default function ShowComments({ blogId, refresh }) {
   const [comments, setComments] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
-  // Fetch comments whenever blogId or refresh changes
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        setLoading(true);
-        const res = await api.get(`/blog/${blogId}/reviews`, { withCredentials: true });
+        const res = await api.get(`/blog/${blogId}/comments`, {
+          withCredentials: true,
+        });
         setComments(res.data || []);
-        setLoading(false);
       } catch (err) {
-        console.error(err);
-        setError("Error fetching comments");
-        setLoading(false);
+        console.error("Error fetching comments:", err);
       }
     };
-
     fetchComments();
   }, [blogId, refresh]);
 
-  if (loading) return <Typography>Loading comments...</Typography>;
-  if (error) return <Typography color="error">{error}</Typography>;
-  if (comments.length === 0) return <Typography>No comments yet.</Typography>;
+  if (comments.length === 0) {
+    return (
+      <Typography sx={{ color: "text.secondary", fontStyle: "italic" }}>
+        No comments yet. Be the first to leave one!
+      </Typography>
+    );
+  }
 
   return (
-    <Box sx={{ mt: 2 }}>
-      {comments.map((comment) => (
-        <Paper key={comment._id} sx={{ p: 2, mb: 2 }}>
-          <Typography variant="subtitle2" sx={{ fontWeight: "bold" }}>
-            {comment.author || "Anonymous"}:
-          </Typography>
-          <Typography variant="body2" sx={{ mb: 1 }}>
-            {comment.comment}
-          </Typography>
-          <Typography variant="caption" color="text.secondary">
-            Rating: {comment.rating} ⭐
-          </Typography>
-        </Paper>
+    <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+      {comments.map((cmt, index) => (
+        <Card
+          key={index}
+          sx={{
+            borderRadius: 2,
+            boxShadow: 3,
+            bgcolor: "white",
+          }}
+        >
+          <CardContent>
+            {/* Author + Date */}
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                mb: 1,
+                flexWrap: "wrap",
+                gap: 1,
+              }}
+            >
+              <Typography
+                sx={{ display: "flex", alignItems: "center", gap: 1 }}
+                color="primary"
+              >
+                <PersonIcon fontSize="small" />
+                {cmt.author || "Anonymous"}
+              </Typography>
+
+              <Typography
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1,
+                  color: "text.secondary",
+                }}
+              >
+                <CalendarTodayIcon fontSize="small" />
+                {cmt.date
+                  ? new Date(cmt.date).toLocaleDateString()
+                  : "Unknown date"}
+              </Typography>
+            </Box>
+
+            {/* Comment Text */}
+            <Typography variant="body1" sx={{ mb: 1 }}>
+              {cmt.comment}
+            </Typography>
+
+            {/* Rating if available */}
+            {cmt.rating && (
+              <Rating value={cmt.rating} precision={0.5} readOnly size="small" />
+            )}
+          </CardContent>
+
+          {index < comments.length - 1 && <Divider />}
+        </Card>
       ))}
     </Box>
   );
