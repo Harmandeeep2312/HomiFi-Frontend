@@ -96,13 +96,13 @@ export default function Navbar() {
         disableGutters
         sx={{
           px: 2,
-          flexWrap: { xs: "wrap", md: "nowrap" },        // ✅ wrap items on mobile
-          justifyContent: { xs: "center", md: "space-between" }, // ✅ center on mobile
-          gap: { xs: 1, md: 2 },                          // ✅ reduce spacing on mobile
+          flexWrap: { xs: "wrap", md: "nowrap" },        
+          justifyContent: { xs: "center", md: "space-between" }, 
+          gap: { xs: 1, md: 2 },                          
         }}
       >
         <AdbIcon sx={{ mr: 1, display: { xs: "none", md: "flex" } }} /> 
-        {/* ✅ hide icon on mobile */}
+        
 
         <Typography
           variant="h6"
@@ -116,14 +116,15 @@ export default function Navbar() {
             letterSpacing: ".3rem",
             color: "inherit",
             textDecoration: "none",
-            flexGrow: { xs: 1, md: 0 },                   // ✅ let title take space on mobile
-            textAlign: { xs: "center", md: "left" },      // ✅ center title on mobile
+            flexGrow: 1,
+            display: { xs: "flex", md: "none" },                   
+            textAlign: { xs: "center", md: "left" },      
           }}
         >
           HomiFi
         </Typography>
 
-        {/* Center section: Categories + Search */}
+        
         <Box
           sx={{
             flexGrow: 1,
@@ -131,8 +132,8 @@ export default function Navbar() {
             justifyContent: "center",
             alignItems: "center",
             gap: { xs: 1, md: 2 },
-            flexDirection: { xs: "column", md: "row" },  // ✅ stack vertically on mobile
-            mt: { xs: 1, md: 0 },                        // ✅ add spacing on mobile
+            flexDirection: { xs: "column", md: "row" },  
+            mt: { xs: 1, md: 0 },                        
           }}
         >
           <Button
@@ -142,7 +143,7 @@ export default function Navbar() {
             onClick={handleClick}
             endIcon={<KeyboardArrowDownIcon />}
             sx={{
-              fontSize: { xs: "12px", md: "14px" },      // ✅ smaller on mobile
+              fontSize: { xs: "12px", md: "14px" },
               px: { xs: 1, md: 2 },
             }}
           >
@@ -172,7 +173,7 @@ export default function Navbar() {
             </MenuItem>
           </StyledMenu>
 
-          {/* ✅ search bar shrinks on mobile */}
+          
           <Box sx={{ display: "flex", alignItems: "center", gap: 1, width: { xs: "100%", md: "auto" } }}>
             <TextField
               id="search-bar"
@@ -185,13 +186,13 @@ export default function Navbar() {
           </Box>
         </Box>
 
-        {/* Right side: login/signup or profile */}
+        
         <Box
           sx={{
             display: "flex",
             alignItems: "center",
             gap: { xs: 1, md: 2 },
-            mt: { xs: 1, md: 0 },   // ✅ move down on mobile
+            mt: { xs: 1, md: 0 },   
           }}
         >
           {!isLoggedIn ? (
