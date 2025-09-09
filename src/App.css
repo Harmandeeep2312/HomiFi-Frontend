@@ -6,6 +6,10 @@ html, body {
   padding: 0;
   font-family: 'Poppins', sans-serif;
 }
+.main-content {
+  padding-top: 80px; 
+}
+
 
 body {
   margin: 0;

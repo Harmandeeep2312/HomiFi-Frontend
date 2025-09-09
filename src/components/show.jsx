@@ -3,7 +3,7 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import { AuthContext } from "./AuthContent";
 import api from "../api";
 import Navbar from "./navbar.jsx";
-import Toolbar from "@mui/material/Toolbar";
+
 import {
   Box,
   Card,
@@ -114,9 +114,9 @@ export default function Show() {
   return (
     <>
       <Navbar />
-       <Toolbar />
+       <div className="main-content">
       <Box sx={{ width: "100%", py: 6, px: 2, pt: 10, background: "linear-gradient(to right, #6dd5ed, #2193b0)" }}>
-        {/* Blog Card */}
+        
         <Card sx={{ maxWidth: 800, mx: "auto", p: 3, borderRadius: 3, boxShadow: 5, bgcolor: "white" }}>
           <CardContent>
             <Typography sx={{ display: "flex", alignItems: "center", gap: 1, color: "text.secondary", mb: 1 }}>
@@ -168,6 +168,7 @@ export default function Show() {
                   emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
                 />
                 {value !== null && <Box sx={{ ml: 2 }}>{labels[hover !== -1 ? hover : value]}</Box>}
+                
               </Box>
               <TextField
                 fullWidth
@@ -183,6 +184,7 @@ export default function Show() {
               <Button type="submit" variant="contained" color="primary" sx={{ mt: 2 }}>
                 Submit Review
               </Button>
+              
             </Box>
           ) : (
             <Typography sx={{ color: "red", mt: 2 }}>
@@ -190,6 +192,7 @@ export default function Show() {
             </Typography>
           )}
         </Card>
+           
 
         <Card sx={{ maxWidth: 800, mx: "auto", mt: 6, p: 3, borderRadius: 3, boxShadow: 4, bgcolor: "white" }}>
           <Typography variant="h6" gutterBottom>
@@ -198,6 +201,7 @@ export default function Show() {
           <ShowComments comments={comments} />
         </Card>
       </Box>
+       </div>
     </>
   );
 }
