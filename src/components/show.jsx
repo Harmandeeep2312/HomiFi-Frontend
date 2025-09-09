@@ -3,6 +3,7 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import { AuthContext } from "./AuthContent";
 import api from "../api";
 import Navbar from "./navbar.jsx";
+import Toolbar from "@mui/material/Toolbar";
 import {
   Box,
   Card,
