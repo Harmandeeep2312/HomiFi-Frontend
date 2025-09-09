@@ -116,8 +116,7 @@ export default function Navbar() {
             letterSpacing: ".3rem",
             color: "inherit",
             textDecoration: "none",
-            flexGrow: 1,
-            display: { xs: "flex", md: "none" },                   
+            flexGrow: { xs: 1, md: 0 },                   
             textAlign: { xs: "center", md: "left" },      
           }}
         >
