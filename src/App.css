@@ -1,14 +1,19 @@
-/* Page background */
+
 body {
   margin: 0;
-  height: 100vh;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #74ebd5, #acb6e5); /* soft teal → purple */
-  overflow: hidden;
+  background: linear-gradient(135deg, #74ebd5, #acb6e5); 
+   background-size: 400% 400%;
+  animation: gradientBG 20s ease infinite;
   position: relative;
+  height: auto;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
 }
 
-/* Floating elemental shapes */
+
 .shape {
   position: absolute;
   border-radius: 50%;
@@ -23,19 +28,15 @@ body {
   100% { transform: translateY(0px) translateX(0px) rotate(360deg); }
 }
 
-/* Example shapes positioning */
+
 .shape1 { width: 100px; height: 100px; top: 10%; left: 20%; animation-duration: 18s; }
 .shape2 { width: 60px; height: 60px; top: 40%; left: 70%; animation-duration: 22s; }
 .shape3 { width: 80px; height: 80px; top: 70%; left: 30%; animation-duration: 20s; }
 
-/* Optional: gradient animation */
+
 @keyframes gradientBG {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-body {
-  background-size: 400% 400%;
-  animation: gradientBG 20s ease infinite;
-}

@@ -117,14 +117,14 @@ export default function Show() {
       <Navbar />
       <Box
         sx={{
-          minHeight: "100vh",
+          // minHeight: "100vh",
           width: "100%",
-          background: "linear-gradient(to right, #6dd5ed, #2193b0)", // nice gradient
+          background: "linear-gradient(to right, #6dd5ed, #2193b0)", 
           py: 6,
           px: 2,
         }}
       >
-        {/* Blog Card */}
+        
         <Card
           sx={{
             maxWidth: 800,
@@ -210,7 +210,7 @@ export default function Show() {
           )}
         </Card>
 
-        {/* Review Section */}
+      
         <Card
           sx={{
             maxWidth: 800,
@@ -278,7 +278,7 @@ export default function Show() {
           )}
         </Card>
 
-        {/* Comments Section */}
+        
         <Card
           sx={{
             maxWidth: 800,
