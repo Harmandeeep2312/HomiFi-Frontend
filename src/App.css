@@ -1,7 +1,7 @@
 
 html, body {
   height: 100% ;       
-  min-height: 100vh;  
+  min-height: 100vh !important;  
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
@@ -50,66 +50,3 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-.navbar {
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-.navbar {
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-.blog-card {
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.comment-section {
-  width: 100%;
-  font-size: 14px;
-}
-@media (min-width: 601px) and (max-width: 1024px) {
-  .container {
-    padding: 15px;
-  }
-
-  .navbar {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .blog-card {
-    width: 48%;
-    display: inline-block;
-  }
-
-  .comment-section {
-    font-size: 15px;
-  }
-}
-
-
-@media (min-width: 1025px) {
-  .container {
-    width: 80%;
-    margin: auto;
-    padding: 20px;
-  }
-
-  .navbar {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .blog-card {
-    width: 30%;
-    margin: 1%;
-    display: inline-block;
-    vertical-align: top;
-  }
-
-  .comment-section {
-    font-size: 16px;
-  }
-}
