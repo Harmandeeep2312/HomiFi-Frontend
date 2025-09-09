@@ -93,7 +93,6 @@ export default function Navbar() {
       }}
     >
       <Toolbar disableGutters sx={{ px: 2 }}>
-        {/* Left: Logo */}
         <AdbIcon sx={{ mr: 1 }} />
         <Typography
           variant="h6"
@@ -112,7 +111,6 @@ export default function Navbar() {
           HomiFi
         </Typography>
 
-        {/* Center: Blog Categories + Search */}
         <Box
           sx={{
             flexGrow: 1,
@@ -163,8 +161,6 @@ export default function Navbar() {
           />
           <SearchIcon />
         </Box>
-
-        {/* Right: Auth */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
           {!isLoggedIn ? (
             <>

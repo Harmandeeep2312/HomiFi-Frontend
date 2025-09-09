@@ -122,7 +122,7 @@ export default function Show() {
           background: "linear-gradient(to right, #6dd5ed, #2193b0)", 
           py: 6,
           px: 2,
-           pt: 10, 
+           pt: 30, 
         }}
       >
         
