@@ -20,15 +20,22 @@ export default function ShowComments({ blogId, refresh }) {
         const res = await api.get(`/blog/${blogId}`, {
           withCredentials: true,
         });
-         setComments(Array.isArray(res.data.comments) ? res.data.comments : []);
+
+        // Ensure comments is always an array
+        const blogComments = Array.isArray(res.data.comments)
+          ? res.data.comments
+          : [];
+        setComments(blogComments);
       } catch (err) {
         console.error("Error fetching comments:", err);
+        setComments([]); // fallback to empty array on error
       }
     };
+
     fetchComments();
   }, [blogId, refresh]);
 
-  if (comments.length === 0) {
+  if (!comments || comments.length === 0) {
     return (
       <Typography sx={{ color: "text.secondary", fontStyle: "italic" }}>
         No comments yet. Be the first to leave one!
@@ -40,7 +47,7 @@ export default function ShowComments({ blogId, refresh }) {
     <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
       {comments.map((cmt, index) => (
         <Card
-          key={index}
+          key={cmt._id || index} // use unique id if available
           sx={{
             borderRadius: 2,
             boxShadow: 3,
@@ -48,7 +55,6 @@ export default function ShowComments({ blogId, refresh }) {
           }}
         >
           <CardContent>
-            
             <Box
               sx={{
                 display: "flex",
@@ -81,13 +87,11 @@ export default function ShowComments({ blogId, refresh }) {
               </Typography>
             </Box>
 
-           
             <Typography variant="body1" sx={{ mb: 1 }}>
-              {cmt.comment}
+              {cmt.comment || "No comment content"}
             </Typography>
 
-            
-            {cmt.rating && (
+            {cmt.rating != null && (
               <Rating value={cmt.rating} precision={0.5} readOnly size="small" />
             )}
           </CardContent>
