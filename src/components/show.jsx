@@ -98,7 +98,6 @@ export default function Show() {
       const review = {
         comment: commentData.comment,
         rating: value,
-        author: user?.username || "Anonymous",
       };
       await api.post(`/blog/${id}/review`, review, { withCredentials: true });
 
