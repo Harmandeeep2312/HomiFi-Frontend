@@ -17,7 +17,7 @@ export default function ShowComments({ blogId, refresh }) {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const res = await api.get(`/blog/${blogId}/review`, {
+        const res = await api.get(`/blog/${blogId}`, {
           withCredentials: true,
         });
         setComments(res.data || []);
