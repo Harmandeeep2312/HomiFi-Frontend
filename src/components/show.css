@@ -105,3 +105,9 @@
     transform: translateY(0);
   }
 }
+body {
+  overflow-y: auto;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}

@@ -116,12 +116,13 @@ export default function Show() {
     <Navbar />
     <Box
       sx={{
-        minHeight: "100vh",
+        width: "100%",
         display: "flex",
         justifyContent: "center",
+        flexDirection: "column",
         alignItems: "flex-start",
         px: 2,
-        py: 10,
+        pt: 4,
       }}
     >
       <Card 
@@ -236,7 +237,8 @@ export default function Show() {
         <Box sx={{ ml: 2 }}>{labels[hover !== -1 ? hover : value]}</Box>
       )}
     </Box>
-      <div className="comment-box">
+    <Box sx={{ width: "100%", maxWidth: 800, mt: 4, mb: 6 }}>
+      <div className="Review-Box">
         <TextField
           id="standard-multiline-flexible"
           label="Comment!"
@@ -251,6 +253,7 @@ export default function Show() {
         <Button type="submit" variant="contained" color="primary" sx={{ mt: 2 }}>
           Submit Review
         </Button>
+        </Box>
     </Box>
     ) : (
       <p style={{ color: "red" }}>
@@ -258,6 +261,7 @@ export default function Show() {
   </p>
     )}
     </div>
+    
     <div>
       <h3>Comments</h3>
       <ShowComments blogId={id} refresh={refreshReviews} />
