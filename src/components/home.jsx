@@ -21,7 +21,7 @@ export default function Home() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await api.get(`/blogs${search}`);
+        const res = await api.get(`/blog${search}`);
         setBlog(res.data);
       } catch (err) {
         console.error(err);
