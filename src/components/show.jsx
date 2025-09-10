@@ -121,6 +121,7 @@ export default function Show() {
       <Box sx={{ width: "100%", py: 6, px: 2, background: "linear-gradient(to right, #6dd5ed, #2193b0)" }}>
         
         <Card sx={{ maxWidth: 800, mx: "auto", p: 3, borderRadius: 3, boxShadow: 5, bgcolor: "white" }}>
+          <div className="Cardd">
           <CardContent>
             <Typography sx={{ display: "flex", alignItems: "center", gap: 1, color: "text.secondary", mb: 1 }}>
               <PersonIcon fontSize="small" /> {showBlog.author?.username || "Anonymous"}
@@ -152,6 +153,8 @@ export default function Show() {
               </Button>
             </CardActions>
           )}
+          </div>
+
         </Card>
 
         <Card sx={{ maxWidth: 800, mx: "auto", mt: 6, p: 3, borderRadius: 3, boxShadow: 4, bgcolor: "white" }}>
@@ -204,6 +207,7 @@ export default function Show() {
           <ShowComments comments={comments} />
         </Card>
       </Box>
+      
        </div>
     </>
   );
