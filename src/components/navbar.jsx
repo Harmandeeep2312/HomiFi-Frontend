@@ -75,6 +75,7 @@ export default function Navbar() {
   const handleCloseUserMenu = () => setAnchorElUser(null);
 
   const handleClick = (event) => setAnchorEl(event.currentTarget);
+  const handleClose = () => setAnchorEl(null);
 
   const handleLogout = async () => {
     try {
