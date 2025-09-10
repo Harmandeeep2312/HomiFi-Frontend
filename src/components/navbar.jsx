@@ -164,7 +164,7 @@ const handleCategorySelect = (category) => {
               <TravelExploreIcon />
               General Lifestyle & Personal
             </MenuItem>
-            <MenuItem nClick={() => handleCategorySelect("Technology & Business")} disableRipple>
+            <MenuItem onClick={() => handleCategorySelect("Technology & Business")} disableRipple>
               <LaptopIcon />
               Technology & Business
             </MenuItem>
@@ -187,9 +187,12 @@ const handleCategorySelect = (category) => {
               size="small"
               variant="outlined"
               value={searchQuery}
+              backgroundColor= "#ffffff"
               onChange={(e) => setSearchQuery(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-              sx={{ flexGrow: 1 }}
+              onKeyDown={(e) =>{ 
+                if(e.key === "Enter"){
+                  handleSearch()}}}
+              sx={{ flexGrow: 1 ,backgroundColor: "#fff", borderRadius: 1,}}
             />
             <IconButton onClick={handleSearch}>
             <SearchIcon />
