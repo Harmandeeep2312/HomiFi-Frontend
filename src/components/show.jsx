@@ -114,6 +114,8 @@ export default function Show() {
   return (
     <>
       <Navbar />
+
+      <div className="toolbar-offset"></div>
        <div className="main-content">
       <Box sx={{ width: "100%", py: 6, px: 2, pt: 10, background: "linear-gradient(to right, #6dd5ed, #2193b0)" }}>
         

@@ -115,3 +115,13 @@ body {
   padding-top: 80px; 
   min-height: 100vh; 
 }
+.toolbar-offset {
+  min-height: 64px !important; 
+}
+
+
+@media (max-width: 600px) {
+  .toolbar-offset {
+    min-height: 56px;
+  }
+}
