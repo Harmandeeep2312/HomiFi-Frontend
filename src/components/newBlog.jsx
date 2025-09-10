@@ -118,7 +118,7 @@ export default function NewBlog() {
           >
             <InputLabel>Blog Category</InputLabel>
             <Select
-              name="type"
+              name="Btype"
               value={formData.Btype}
               onChange={handleInputs}
             >
