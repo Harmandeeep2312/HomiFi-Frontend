@@ -115,6 +115,6 @@
     transform: translateY(0);
   }
 }
-.cardd{
-  padding-top: 64px !important;
+.MuiCardContent-root{
+  padding-top: 850px !important;
 }
