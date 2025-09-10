@@ -16,7 +16,7 @@ export default function NewBlog() {
   let [formData, setFormData] = useState({
     title: "",
     content: "",
-    type: "", 
+    Btype: "", 
   });
 
   const handleInputs = (e) => {
