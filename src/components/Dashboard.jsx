@@ -25,7 +25,7 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchUserBlogs = async () => {
       try {
-        const res = await api.get(`/user/${user._id}/blogs`);
+        const res = await api.get(`/user/${user._id}/dashboard`);
         setBlogs(res.data);
       } catch (err) {
         console.error("Error fetching user blogs:", err);
@@ -82,21 +82,21 @@ export default function Dashboard() {
             <TableHead>
               <TableRow>
                 <TableCell>Blog Title</TableCell>
-                <TableCell align="center">Likes</TableCell>
+                <TableCell align="center">Average Rating</TableCell>
                 <TableCell align="center">Comments</TableCell>
                 <TableCell align="center">Created At</TableCell>
               </TableRow>
             </TableHead>
-            <TableBody>
+           <TableBody>
               {blogs.map((blog) => (
-                <TableRow key={blog._id}>
-                  <TableCell>{blog.title}</TableCell>
-                  <TableCell align="center">{blog.likes?.length || 0}</TableCell>
-                  <TableCell align="center">{blog.comments?.length || 0}</TableCell>
-                  <TableCell align="center">
-                    {new Date(blog.createdAt).toLocaleDateString()}
-                  </TableCell>
-                </TableRow>
+                  <TableRow key={blog._id}>
+                     <TableCell>{blog.title}</TableCell>
+                      <TableCell align="center">{blog.rating || 0} ⭐</TableCell>
+                      <TableCell align="center">{blog.comments}</TableCell>
+                      <TableCell align="center">
+                      {new Date(blog.createdAt).toLocaleDateString()}
+                      </TableCell>
+                  </TableRow>
               ))}
             </TableBody>
           </Table>
