@@ -68,13 +68,13 @@ export default function Navbar() {
   const { isLoggedIn, setIsLoggedIn, user } = useContext(AuthContext);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
   const handleOpenUserMenu = (event) => setAnchorElUser(event.currentTarget);
   const handleCloseUserMenu = () => setAnchorElUser(null);
 
   const handleClick = (event) => setAnchorEl(event.currentTarget);
-  const handleClose = () => setAnchorEl(null);
 
   const handleLogout = async () => {
     try {
@@ -85,6 +85,12 @@ export default function Navbar() {
       console.error(err);
     }
   };
+  const handleSearch = () => {
+  navigate(`/blogs?search=${searchQuery}`);
+};
+const handleCategorySelect = (category) => {
+  navigate(`/blogs?type=${encodeURIComponent(category)}`);
+};
 
   return (
     <AppBar
@@ -154,20 +160,20 @@ export default function Navbar() {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            <MenuItem onClick={handleClose} disableRipple>
+            <MenuItem onClick={() => handleCategorySelect("General Lifestyle & Personal")} disableRipple>
               <TravelExploreIcon />
               General Lifestyle & Personal
             </MenuItem>
-            <MenuItem onClick={handleClose} disableRipple>
+            <MenuItem nClick={() => handleCategorySelect("Technology & Business")} disableRipple>
               <LaptopIcon />
               Technology & Business
             </MenuItem>
             <Divider sx={{ my: 0.5 }} />
-            <MenuItem onClick={handleClose} disableRipple>
+            <MenuItem onClick={() => handleCategorySelect("Creative & Entertainment")} disableRipple>
               <CameraAltIcon />
               Creative & Entertainment
             </MenuItem>
-            <MenuItem onClick={handleClose} disableRipple>
+            <MenuItem onClick={() => handleCategorySelect("Education & Knowledge")} disableRipple>
               <BookIcon />
               Education & Knowledge
             </MenuItem>
@@ -180,9 +186,14 @@ export default function Navbar() {
               label="Search"
               size="small"
               variant="outlined"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleSearch()}
               sx={{ flexGrow: 1 }}
             />
+            <IconButton onClick={handleSearch}>
             <SearchIcon />
+            </IconButton>
           </Box>
         </Box>
 

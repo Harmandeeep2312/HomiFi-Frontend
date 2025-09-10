@@ -4,12 +4,19 @@ import React, { useState } from 'react';
 import Navbar from './navbar';
 import api from "../api";
 import { useNavigate } from "react-router-dom";
+import {
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem
+} from "@mui/material";
 
 export default function NewBlog() {
   const navigate = useNavigate();
   let [formData, setFormData] = useState({
     title: "",
     content: "",
+    type: "", // add type field
   });
 
   const handleInputs = (e) => {
@@ -25,7 +32,7 @@ export default function NewBlog() {
     try {
       const res = await api.post("/blog/new", formData);
       alert("Blog created: " + res.data.title);
-      setFormData({ title: "", content: "" });
+      setFormData({ title: "", content: "", type: "" });
       navigate("/");
     } catch (err) {
       alert("Error creating blog: " + (err.response?.data?.message || err.message));
@@ -71,6 +78,7 @@ export default function NewBlog() {
             boxShadow: "0px 6px 20px rgba(0,0,0,0.2)"
           }}
         >
+          {/* Title */}
           <TextField
             label="Title"
             placeholder="Enter the title of your blog"
@@ -80,6 +88,8 @@ export default function NewBlog() {
             variant="filled"
             required
           />
+
+          {/* Content */}
           <TextField
             label="Content"
             placeholder="Write your blog content"
@@ -92,7 +102,44 @@ export default function NewBlog() {
             required
             sx={{ '& .MuiInputBase-root': { minHeight: 150 } }}
           />
+
+          {/* Category Dropdown */}
+          <FormControl
+            variant="filled"
+            sx={{
+              m: 1,
+              width: '800px',
+              maxWidth: "95%",
+              backgroundColor: "#fff",
+              borderRadius: 2,
+              boxShadow: 3,
+            }}
+            required
+          >
+            <InputLabel>Blog Category</InputLabel>
+            <Select
+              name="type"
+              value={formData.type}
+              onChange={handleInputs}
+            >
+              <MenuItem value="General Lifestyle & Personal">
+                General Lifestyle & Personal
+              </MenuItem>
+              <MenuItem value="Technology & Business">
+                Technology & Business
+              </MenuItem>
+              <MenuItem value="Creative & Entertainment">
+                Creative & Entertainment
+              </MenuItem>
+              <MenuItem value="Education & Knowledge">
+                Education & Knowledge
+              </MenuItem>
+            </Select>
+          </FormControl>
+
+          {/* Submit Button */}
           <button
+            type="submit"
             style={{
               marginTop: "20px",
               padding: "10px 24px",

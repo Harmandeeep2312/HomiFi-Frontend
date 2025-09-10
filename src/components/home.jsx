@@ -11,22 +11,24 @@ import "./home.css";
 import Navbar from "./navbar.jsx";
 import api from "../api";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 
 export default function Home() {
   let [blog, setBlog] = useState([]);
+  const { search } = useLocation();
 
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await api.get("/blog");
+        const res = await api.get(`/blogs${search}`);
         setBlog(res.data);
       } catch (err) {
         console.error(err);
       }
     };
     fetchBlogs();
-  }, []);
+  }, [search]);
 
   return (
     <>
