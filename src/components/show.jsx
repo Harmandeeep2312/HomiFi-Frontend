@@ -115,7 +115,7 @@ export default function Show() {
     <>
       <Navbar />
 
-      <Box sx={{py: 9}} />
+      <Box sx={{py: 113}} />
 
        <div className="main-content">
       <Box sx={{ width: "100%", py: 113, px: 2, background: "linear-gradient(to right, #6dd5ed, #2193b0)" }}>
