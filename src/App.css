@@ -95,3 +95,6 @@ body {
     font-size: 20px !important;  
   }
 }
+.MuiCardContent-root{
+  padding-top: 850px !important;
+}
