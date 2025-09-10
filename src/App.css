@@ -101,3 +101,13 @@ body {
     font-size: 20px !important;  
   }
 }
+.toolbar-offset {
+  min-height: 64px !important; 
+}
+
+
+@media (max-width: 600px) {
+  .toolbar-offset {
+    min-height: 56px;
+  }
+}
