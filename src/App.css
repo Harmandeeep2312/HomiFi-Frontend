@@ -3,7 +3,6 @@ html, body {
   height: 100% ;       
   min-height: 100vh !important;  
   margin: 0;
-  padding: 0;
   font-family: 'Poppins', sans-serif;
 }
 .main-content {
@@ -16,7 +15,7 @@ body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #74ebd5, #acb6e5); 
   background-repeat: no-repeat; 
-   background-size: 400% 400% !important;
+   background-size: 1000% 1000% !important;
    background-attachment: fixed !important;
   animation: gradientBG 20s ease infinite;
   position: relative;
