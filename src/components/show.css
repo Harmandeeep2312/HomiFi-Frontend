@@ -44,6 +44,7 @@
   text-align: justify;
   margin-bottom: 2rem;
   white-space: pre-line;
+  padding-top: 64px !important;
 }
 .show-actions {
   display: flex;
@@ -115,5 +116,5 @@
   }
 }
 .cardd{
-  padding-top: 64px;
+  padding-top: 64px !important;
 }
