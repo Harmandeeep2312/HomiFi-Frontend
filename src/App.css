@@ -51,7 +51,7 @@ body {
 
 @media (min-width: 601px) and (max-width: 1024px) {
   .container {
-    padding: 15px;
+    padding: 900px;
   }
 
   .navbar {
