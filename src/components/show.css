@@ -46,6 +46,10 @@
   white-space: pre-line;
   padding-top: 64px !important;
 }
+.css-q0tk53 {
+    height: 1000px !important;
+}
+
 .show-actions {
   display: flex;
   justify-content: center;
@@ -114,7 +118,4 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-.css-15q2cw4{
-  padding-top: 850px !important;
 }
