@@ -88,7 +88,7 @@ export default function Navbar() {
 
   return (
     <AppBar
-      position="sticky"
+      position="fixed"
       sx={{
         background: "linear-gradient(90deg, #0f2027, #203a43, #2c5364)",
       }}
