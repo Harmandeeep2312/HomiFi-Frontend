@@ -113,7 +113,7 @@ body {
   min-height: 100vh; 
 }
 .toolbar-offset {
-  min-height: 64px !important; 
+  height: 80px !important; 
 }
 
 
