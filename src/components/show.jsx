@@ -13,7 +13,7 @@ import {
   Typography,
   TextField,
   Rating,
- 
+ Toolbar 
 } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
@@ -116,9 +116,9 @@ export default function Show() {
     <>
       <Navbar />
 
-      <div className="toolbar-offset"></div>
+      <Toolbar />
        <div className="main-content">
-      <Box sx={{ width: "100%", py: 6, px: 2, pt: 10, background: "linear-gradient(to right, #6dd5ed, #2193b0)" }}>
+      <Box sx={{ width: "100%", py: 6, px: 2, background: "linear-gradient(to right, #6dd5ed, #2193b0)" }}>
         
         <Card sx={{ maxWidth: 800, mx: "auto", p: 3, borderRadius: 3, boxShadow: 5, bgcolor: "white" }}>
           <CardContent>
