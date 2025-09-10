@@ -16,7 +16,7 @@ export default function NewBlog() {
   let [formData, setFormData] = useState({
     title: "",
     content: "",
-    type: "", // add type field
+    type: "", 
   });
 
   const handleInputs = (e) => {
@@ -32,7 +32,7 @@ export default function NewBlog() {
     try {
       const res = await api.post("/blog/new", formData);
       alert("Blog created: " + res.data.title);
-      setFormData({ title: "", content: "", type: "" });
+      setFormData({ title: "", content: "", Btype: "" });
       navigate("/");
     } catch (err) {
       alert("Error creating blog: " + (err.response?.data?.message || err.message));
@@ -78,7 +78,7 @@ export default function NewBlog() {
             boxShadow: "0px 6px 20px rgba(0,0,0,0.2)"
           }}
         >
-          {/* Title */}
+          
           <TextField
             label="Title"
             placeholder="Enter the title of your blog"
@@ -89,7 +89,7 @@ export default function NewBlog() {
             required
           />
 
-          {/* Content */}
+         
           <TextField
             label="Content"
             placeholder="Write your blog content"
@@ -103,7 +103,7 @@ export default function NewBlog() {
             sx={{ '& .MuiInputBase-root': { minHeight: 150 } }}
           />
 
-          {/* Category Dropdown */}
+          
           <FormControl
             variant="filled"
             sx={{
@@ -119,7 +119,7 @@ export default function NewBlog() {
             <InputLabel>Blog Category</InputLabel>
             <Select
               name="type"
-              value={formData.type}
+              value={formData.Btype}
               onChange={handleInputs}
             >
               <MenuItem value="General Lifestyle & Personal">
@@ -137,7 +137,7 @@ export default function NewBlog() {
             </Select>
           </FormControl>
 
-          {/* Submit Button */}
+          
           <button
             type="submit"
             style={{
