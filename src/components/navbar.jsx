@@ -218,6 +218,12 @@ export default function Navbar() {
               >
                 Create Blog
               </Button>
+              <Button
+                onClick={() => navigate("/dashboard")}
+                 sx={{ color: "white", fontSize: { xs: "12px", md: "14px" } }}
+              >
+                  Dashboard
+              </Button>
               <Tooltip title="Account">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <Avatar

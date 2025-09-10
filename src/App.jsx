@@ -7,6 +7,10 @@ import Show from "./components/show.jsx";
 import NewBlog from "./components/newBlog.jsx";
 import EditPage from './components/editPage.jsx';
 import React, { AuthProvider } from "./components/AuthContent";
+import Dashboard from "./components/Dashboard";
+
+
+
 
 function App() {
   return (
@@ -20,6 +24,7 @@ function App() {
         <Route path="/blog/new" element={<NewBlog />} />
         <Route path="/blog/:id" element={<Show />} />
         <Route path="/blog/:id/edit" element={<EditPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
     </AuthProvider>
