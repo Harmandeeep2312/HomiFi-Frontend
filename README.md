@@ -8,7 +8,7 @@ This layer acts as the **user’s gateway** to the platform — whether they wan
 
 🔗 **Backend Repository**  
 The backend for HomiFi (Node.js + Express + MongoDB + Google OAuth) is located here:  
-👉 [HomiFi Backend Repository](https://github.com/your-username/homifi-backend)
+👉 [HomiFi Backend Repository](https://github.com/Harmandeeep2312/HomiFi-Backend.git)
 
 📺 **Demo Video & Screenshots**: [Click here](https://drive.google.com/drive/folders/14IBuUbnINqiBrYk3FFAm7wlgXlkgT14v?usp=sharing)
 
