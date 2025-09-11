@@ -1,10 +1,10 @@
-# HomiFi - Frontend
-
+# HomiFi – Where Ideas Find a Home.
+##Frontend
 The **frontend** of HomiFi is a modern, responsive web application built with **React (Vite)**.  
 It provides a clean and intuitive interface for users to explore, create, and interact with blogs.  
 
 This layer acts as the **user’s gateway** to the platform — whether they want to read inspiring articles, share their own stories, or engage with others through comments.
-
+#Demo Video and some Screenshots are provided here - (https://drive.google.com/drive/folders/14IBuUbnINqiBrYk3FFAm7wlgXlkgT14v?usp=sharing)
 ---
 
 ## 🌟 What This Frontend Does
