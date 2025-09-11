@@ -6,6 +6,10 @@ It provides a clean and intuitive interface for users to explore, create, and in
 
 This layer acts as the **user’s gateway** to the platform — whether they want to read inspiring articles, share their own stories, or engage with others through comments.  
 
+🔗 **Backend Repository**  
+The backend for HomiFi (Node.js + Express + MongoDB + Google OAuth) is located here:  
+👉 [HomiFi Backend Repository](https://github.com/your-username/homifi-backend)
+
 📺 **Demo Video & Screenshots**: [Click here](https://drive.google.com/drive/folders/14IBuUbnINqiBrYk3FFAm7wlgXlkgT14v?usp=sharing)
 
 ---
