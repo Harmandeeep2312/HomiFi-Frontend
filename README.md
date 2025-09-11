@@ -6,7 +6,7 @@ It provides a clean and intuitive interface for users to explore, create, and in
 This layer acts as the **user’s gateway** to the platform — whether they want to read inspiring articles, share their own stories, or engage with others through comments.
 
 ---
-📺 **Demo Video & Screenshots**: [Click here](https://drive.google.com/drive/folders/14lBuUbnINqiBrYk3FFAm7wlgXIkgT14v?usp=sharing)
+📺 **Demo Video & Screenshots**: [Click here](https://drive.google.com/drive/folders/14IBuUbnINqiBrYk3FFAm7wlgXlkgT14v?usp=sharing)
 ---
 ## 🌟 What This Frontend Does
 - **Beautiful Blog Experience** – Browse and read blogs in a distraction-free, responsive design.  
