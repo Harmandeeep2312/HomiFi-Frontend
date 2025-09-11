@@ -51,7 +51,7 @@ client/
 
 3. Create a `.env` file in `client/`:
    ```env
-   VITE_API_URL=http://localhost:5000   # backend API URL
+   VITE_API_URL=http://localhost:5173   # backend API URL
    VITE_GOOGLE_CLIENT_ID=your_google_client_id
    ```
 
